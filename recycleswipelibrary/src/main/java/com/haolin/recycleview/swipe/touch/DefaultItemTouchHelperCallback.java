@@ -22,9 +22,6 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * Created by Yolanda on 2016/4/19.
- */
 public class DefaultItemTouchHelperCallback extends ItemTouchHelper.Callback {
 
     private OnItemMovementListener onItemMovementListener;

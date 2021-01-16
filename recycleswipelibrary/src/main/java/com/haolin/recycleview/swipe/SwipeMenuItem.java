@@ -28,9 +28,6 @@ import androidx.annotation.Px;
 import androidx.annotation.StyleRes;
 import androidx.core.content.ContextCompat;
 
-/**
- * Created by Yan Zhenjie on 2016/7/26.
- */
 public class SwipeMenuItem {
 
     private Context mContext;

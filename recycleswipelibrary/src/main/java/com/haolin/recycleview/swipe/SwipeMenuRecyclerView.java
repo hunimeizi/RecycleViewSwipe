@@ -40,18 +40,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Yan Zhenjie on 2016/7/27.
- */
 public class SwipeMenuRecyclerView extends RecyclerView {
 
-    /**
-     * Left menu.
-     */
     public static final int LEFT_DIRECTION = 1;
-    /**
-     * Right menu.
-     */
+
     public static final int RIGHT_DIRECTION = -1;
 
     @IntDef({LEFT_DIRECTION, RIGHT_DIRECTION})
@@ -59,9 +51,6 @@ public class SwipeMenuRecyclerView extends RecyclerView {
     public @interface DirectionMode {
     }
 
-    /**
-     * Invalid position.
-     */
     private static final int INVALID_POSITION = -1;
 
     protected int mScaleTouchSlop;
@@ -101,109 +90,58 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Set OnItemMoveListener.
-     *
-     * @param onItemMoveListener {@link OnItemMoveListener}.
-     */
     public void setOnItemMoveListener(OnItemMoveListener onItemMoveListener) {
         initializeItemTouchHelper();
         this.mDefaultItemTouchHelper.setOnItemMoveListener(onItemMoveListener);
     }
 
-    /**
-     * Set OnItemMovementListener.
-     *
-     * @param onItemMovementListener {@link OnItemMovementListener}.
-     */
     public void setOnItemMovementListener(OnItemMovementListener onItemMovementListener) {
         initializeItemTouchHelper();
         this.mDefaultItemTouchHelper.setOnItemMovementListener(onItemMovementListener);
     }
 
-    /**
-     * Set OnItemStateChangedListener.
-     *
-     * @param onItemStateChangedListener {@link OnItemStateChangedListener}.
-     */
     public void setOnItemStateChangedListener(OnItemStateChangedListener onItemStateChangedListener) {
         initializeItemTouchHelper();
         this.mDefaultItemTouchHelper.setOnItemStateChangedListener(onItemStateChangedListener);
     }
 
-    /**
-     * Set can long press drag.
-     *
-     * @param canDrag drag true, otherwise is can't.
-     */
     public void setLongPressDragEnabled(boolean canDrag) {
         initializeItemTouchHelper();
         this.mDefaultItemTouchHelper.setLongPressDragEnabled(canDrag);
     }
 
-    /**
-     * Get can long press drag.
-     *
-     * @return drag true, otherwise is can't.
-     */
     public boolean isLongPressDragEnabled() {
         initializeItemTouchHelper();
         return this.mDefaultItemTouchHelper.isLongPressDragEnabled();
     }
 
-
-    /**
-     * Set can swipe delete.
-     *
-     * @param canSwipe swipe true, otherwise is can't.
-     */
     public void setItemViewSwipeEnabled(boolean canSwipe) {
         initializeItemTouchHelper();
         allowSwipeDelete = canSwipe; // swipe and menu conflict.
         this.mDefaultItemTouchHelper.setItemViewSwipeEnabled(canSwipe);
     }
 
-    /**
-     * Get can long press swipe.
-     *
-     * @return swipe true, otherwise is can't.
-     */
     public boolean isItemViewSwipeEnabled() {
         initializeItemTouchHelper();
         return this.mDefaultItemTouchHelper.isItemViewSwipeEnabled();
     }
 
-    /**
-     * Start drag a item.
-     *
-     * @param viewHolder the ViewHolder to start dragging. It must be a direct child of RecyclerView.
-     */
     public void startDrag(RecyclerView.ViewHolder viewHolder) {
         initializeItemTouchHelper();
         this.mDefaultItemTouchHelper.startDrag(viewHolder);
     }
 
-    /**
-     * Star swipe a item.
-     *
-     * @param viewHolder the ViewHolder to start swiping. It must be a direct child of RecyclerView.
-     */
     public void startSwipe(RecyclerView.ViewHolder viewHolder) {
         initializeItemTouchHelper();
         this.mDefaultItemTouchHelper.startSwipe(viewHolder);
     }
 
-    /**
-     * Check the Adapter and throw an exception if it already exists.
-     */
     private void checkAdapterExist(String message) {
         if (mAdapterWrapper != null)
             throw new IllegalStateException(message);
     }
 
-    /**
-     * Set item click listener.
-     */
+
     public void setSwipeItemClickListener(SwipeItemClickListener itemClickListener) {
         if (itemClickListener == null) return;
         checkAdapterExist("Cannot set item click listener, setAdapter has already been called.");
@@ -228,18 +166,12 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Set to create menu listener.
-     */
     public void setSwipeMenuCreator(SwipeMenuCreator menuCreator) {
         if (menuCreator == null) return;
         checkAdapterExist("Cannot set menu creator, setAdapter has already been called.");
         this.mSwipeMenuCreator = menuCreator;
     }
 
-    /**
-     * Set to click menu listener.
-     */
     public void setSwipeMenuItemClickListener(SwipeMenuItemClickListener menuItemClickListener) {
         if (menuItemClickListener == null) return;
         checkAdapterExist("Cannot set menu item click listener, setAdapter has already been called.");
@@ -288,9 +220,6 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         super.setLayoutManager(layoutManager);
     }
 
-    /**
-     * Get the original adapter.
-     */
     public Adapter getOriginAdapter() {
         if (mAdapterWrapper == null) return null;
         return mAdapterWrapper.getOriginAdapter();
@@ -375,9 +304,6 @@ public class SwipeMenuRecyclerView extends RecyclerView {
     private List<View> mHeaderViewList = new ArrayList<>();
     private List<View> mFooterViewList = new ArrayList<>();
 
-    /**
-     * Add view at the headers.
-     */
     public void addHeaderView(View view) {
         mHeaderViewList.add(view);
         if (mAdapterWrapper != null) {
@@ -385,9 +311,6 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Remove view from header.
-     */
     public void removeHeaderView(View view) {
         mHeaderViewList.remove(view);
         if (mAdapterWrapper != null) {
@@ -395,9 +318,6 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Add view at the footer.
-     */
     public void addFooterView(View view) {
         mFooterViewList.add(view);
         if (mAdapterWrapper != null) {
@@ -412,75 +332,37 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Get size of headers.
-     */
     public int getHeaderItemCount() {
         if (mAdapterWrapper == null) return 0;
         return mAdapterWrapper.getHeaderItemCount();
     }
 
-    /**
-     * Get size of footer.
-     */
     public int getFooterItemCount() {
         if (mAdapterWrapper == null) return 0;
         return mAdapterWrapper.getFooterItemCount();
     }
 
-    /**
-     * Get ViewType of item.
-     */
     public int getItemViewType(int position) {
         if (mAdapterWrapper == null) return 0;
         return mAdapterWrapper.getItemViewType(position);
     }
 
-    /**
-     * open menu on left.
-     *
-     * @param position position.
-     */
     public void smoothOpenLeftMenu(int position) {
         smoothOpenMenu(position, LEFT_DIRECTION, SwipeMenuLayout.DEFAULT_SCROLLER_DURATION);
     }
 
-    /**
-     * open menu on left.
-     *
-     * @param position position.
-     * @param duration time millis.
-     */
     public void smoothOpenLeftMenu(int position, int duration) {
         smoothOpenMenu(position, LEFT_DIRECTION, duration);
     }
 
-    /**
-     * open menu on right.
-     *
-     * @param position position.
-     */
     public void smoothOpenRightMenu(int position) {
         smoothOpenMenu(position, RIGHT_DIRECTION, SwipeMenuLayout.DEFAULT_SCROLLER_DURATION);
     }
 
-    /**
-     * open menu on right.
-     *
-     * @param position position.
-     * @param duration time millis.
-     */
     public void smoothOpenRightMenu(int position, int duration) {
         smoothOpenMenu(position, RIGHT_DIRECTION, duration);
     }
 
-    /**
-     * open menu.
-     *
-     * @param position  position.
-     * @param direction use {@link #LEFT_DIRECTION}, {@link #RIGHT_DIRECTION}.
-     * @param duration  time millis.
-     */
     public void smoothOpenMenu(int position, @DirectionMode int direction, int duration) {
         if (mOldSwipedLayout != null) {
             if (mOldSwipedLayout.isMenuOpen()) {
@@ -504,9 +386,6 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Close menu.
-     */
     public void smoothCloseMenu() {
         if (mOldSwipedLayout != null && mOldSwipedLayout.isMenuOpen()) {
             mOldSwipedLayout.smoothCloseMenu();
@@ -690,48 +569,24 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Use the default to load more View.
-     */
     public void useDefaultLoadMore() {
         DefaultLoadMoreView defaultLoadMoreView = new DefaultLoadMoreView(getContext());
         addFooterView(defaultLoadMoreView);
         setLoadMoreView(defaultLoadMoreView);
     }
 
-    /**
-     * Load more view.
-     */
     public void setLoadMoreView(LoadMoreView loadMoreView) {
         mLoadMoreView = loadMoreView;
     }
 
-    /**
-     * Load more listener.
-     */
     public void setLoadMoreListener(LoadMoreListener loadMoreListener) {
         mLoadMoreListener = loadMoreListener;
     }
 
-    /**
-     * Automatically load more automatically.
-     * <p>
-     * Non-auto-loading mode, you can to click on the item to load.
-     * </p>
-     *
-     * @param autoLoadMore you can use false.
-     * @see LoadMoreView#onWaitToLoadMore(LoadMoreListener)
-     */
     public void setAutoLoadMore(boolean autoLoadMore) {
         isAutoLoadMore = autoLoadMore;
     }
 
-    /**
-     * Load more done.
-     *
-     * @param dataEmpty data is empty ?
-     * @param hasMore   has more data ?
-     */
     public final void loadMoreFinish(boolean dataEmpty, boolean hasMore) {
         isLoadMore = false;
         isLoadError = false;
@@ -744,12 +599,6 @@ public class SwipeMenuRecyclerView extends RecyclerView {
         }
     }
 
-    /**
-     * Called when data is loaded incorrectly.
-     *
-     * @param errorCode    Error code, will be passed to the LoadView, you can according to it to customize the prompt information.
-     * @param errorMessage Error message.
-     */
     public void loadMoreError(int errorCode, String errorMessage) {
         isLoadMore = false;
         isLoadError = true;
@@ -761,32 +610,17 @@ public class SwipeMenuRecyclerView extends RecyclerView {
 
     public interface LoadMoreView {
 
-        /**
-         * Show progress.
-         */
         void onLoading();
 
-        /**
-         * Load finish, handle result.
-         */
         void onLoadFinish(boolean dataEmpty, boolean hasMore);
 
-        /**
-         * Non-auto-loading mode, you can to click on the item to load.
-         */
         void onWaitToLoadMore(LoadMoreListener loadMoreListener);
 
-        /**
-         * Load error.
-         */
         void onLoadError(int errorCode, String errorMessage);
     }
 
     public interface LoadMoreListener {
 
-        /**
-         * More data should be requested.
-         */
         void onLoadMore();
     }
 

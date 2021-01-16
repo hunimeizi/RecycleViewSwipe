@@ -18,14 +18,6 @@ package com.haolin.recycleview.swipe.widget;
 
 import androidx.annotation.ColorInt;
 
-/**
- * <p>
- * RecyclerView's Item Split Line.
- * </p>
- * Created by Yan Zhenjie on 2016/7/27.
- *
- * @deprecated use {@link DefaultItemDecoration} instead.
- */
 @Deprecated
 public class ListItemDecoration extends DefaultItemDecoration {
 

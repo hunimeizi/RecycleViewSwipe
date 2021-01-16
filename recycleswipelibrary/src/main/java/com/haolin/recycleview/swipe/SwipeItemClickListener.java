@@ -17,9 +17,6 @@ package com.haolin.recycleview.swipe;
 
 import android.view.View;
 
-/**
- * Created by YanZhenjie on 2017/7/21.
- */
 public interface SwipeItemClickListener {
 
     void onItemClick(View itemView, int position);

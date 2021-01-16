@@ -5,9 +5,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class BaseViewHolder<B extends ViewDataBinding> extends RecyclerView.ViewHolder {
-    /**
-     * ViewDataBinding
-     */
+
     private B mBinding;
 
   
@@ -16,9 +14,6 @@ public class BaseViewHolder<B extends ViewDataBinding> extends RecyclerView.View
         mBinding = binding;
     }
 
-    /**
-     * @return viewDataBinding
-     */
     public B getBinding() {
         return mBinding;
     }

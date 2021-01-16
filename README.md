@@ -5,6 +5,6 @@
 * Gradle
 ```groovy
 compile 'com.yanzhenjie:RecycleViewSwipe:1.1.3'
-
+```
 ##### 配置好后再命令台依次输入
       gradlew install    gradlew bintrayUpload

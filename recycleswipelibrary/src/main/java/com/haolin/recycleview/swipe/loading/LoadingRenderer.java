@@ -36,10 +36,6 @@ public abstract class LoadingRenderer {
         }
     };
 
-    /**
-     * Whenever {@link LoadingDrawable} boundary changes mBounds will be updated.
-     * More details you can see {@link LoadingDrawable#onBoundsChange(Rect)}
-     */
     protected final Rect mBounds = new Rect();
 
     private Drawable.Callback mCallback;

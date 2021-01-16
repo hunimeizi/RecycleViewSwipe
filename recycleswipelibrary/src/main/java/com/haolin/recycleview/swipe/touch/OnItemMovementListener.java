@@ -16,22 +16,8 @@ public interface OnItemMovementListener {
 
     int DOWN = ItemTouchHelper.DOWN;
 
-    /**
-     * Can drag and drop the ViewHolder?
-     *
-     * @param recyclerView     {@link RecyclerView}.
-     * @param targetViewHolder target ViewHolder.
-     * @return use {@link #LEFT}, {@link #UP}, {@link #RIGHT}, {@link #DOWN}.
-     */
     int onDragFlags(RecyclerView recyclerView, RecyclerView.ViewHolder targetViewHolder);
 
-    /**
-     * Can swipe and drop the ViewHolder?
-     *
-     * @param recyclerView     {@link RecyclerView}.
-     * @param targetViewHolder target ViewHolder.
-     * @return use {@link #LEFT}, {@link #UP}, {@link #RIGHT}, {@link #DOWN}.
-     */
     int onSwipeFlags(RecyclerView recyclerView, RecyclerView.ViewHolder targetViewHolder);
 
 }

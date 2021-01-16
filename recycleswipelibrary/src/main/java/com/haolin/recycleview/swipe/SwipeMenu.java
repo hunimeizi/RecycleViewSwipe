@@ -25,9 +25,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Yan Zhenjie on 2016/7/22.
- */
 public class SwipeMenu {
 
     @IntDef({HORIZONTAL, VERTICAL})
@@ -51,11 +48,6 @@ public class SwipeMenu {
         this.mViewType = viewType;
     }
 
-    /**
-     * Set a percentage.
-     *
-     * @param openPercent such as 0.5F.
-     */
     public void setOpenPercent(float openPercent) {
         if (openPercent != mSwipeMenuLayout.getOpenPercent()) {
             openPercent = openPercent > 1 ? 1 : (openPercent < 0 ? 0 : openPercent);
@@ -63,33 +55,16 @@ public class SwipeMenu {
         }
     }
 
-    /**
-     * The duration of the set.
-     *
-     * @param scrollerDuration such 500.
-     */
     public void setScrollerDuration(int scrollerDuration) {
         this.mSwipeMenuLayout.setScrollerDuration(scrollerDuration);
     }
 
-    /**
-     * Set the menu orientation.
-     *
-     * @param orientation use {@link SwipeMenu#HORIZONTAL} or {@link SwipeMenu#VERTICAL}.
-     * @see SwipeMenu#HORIZONTAL
-     * @see SwipeMenu#VERTICAL
-     */
     public void setOrientation(@OrientationMode int orientation) {
         if (orientation != HORIZONTAL && orientation != VERTICAL)
             throw new IllegalArgumentException("Use SwipeMenu#HORIZONTAL or SwipeMenu#VERTICAL.");
         this.orientation = orientation;
     }
 
-    /**
-     * Get the menu orientation.
-     *
-     * @return {@link SwipeMenu#HORIZONTAL} or {@link SwipeMenu#VERTICAL}.
-     */
     @OrientationMode
     public int getOrientation() {
         return orientation;

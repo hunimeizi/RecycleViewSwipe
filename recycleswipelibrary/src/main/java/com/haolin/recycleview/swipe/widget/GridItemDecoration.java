@@ -11,11 +11,6 @@ package com.haolin.recycleview.swipe.widget;
 
 import androidx.annotation.ColorInt;
 
-/**
- * Created by YanZhenjie on 2017/7/6.
- *
- * @deprecated use {@link DefaultItemDecoration} instead.
- */
 @Deprecated
 public class GridItemDecoration extends DefaultItemDecoration {
 

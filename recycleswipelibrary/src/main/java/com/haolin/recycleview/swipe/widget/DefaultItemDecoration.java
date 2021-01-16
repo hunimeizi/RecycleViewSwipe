@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.haolin.recycleview.swipe.SwipeMenuRecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,19 +26,10 @@ public class DefaultItemDecoration extends RecyclerView.ItemDecoration {
     private int mDividerHeight;
     private List<Integer> mViewTypeList = new ArrayList<>();
 
-    /**
-     * @param color decoration line color.
-     */
     public DefaultItemDecoration(@ColorInt int color) {
         this(color, 2, 2, -1);
     }
 
-    /**
-     * @param color           line color.
-     * @param dividerWidth    line width.
-     * @param dividerHeight   line height.
-     * @param excludeViewType don't need to draw the ViewType of the item of the split line.
-     */
     public DefaultItemDecoration(@ColorInt int color, int dividerWidth, int dividerHeight, int... excludeViewType) {
         mDivider = new ColorDrawable(color);
         mDividerWidth = dividerWidth;
@@ -140,7 +133,7 @@ public class DefaultItemDecoration extends RecyclerView.ItemDecoration {
     }
 
     @Override
-    public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
+    public void onDraw(@NotNull Canvas c, @NotNull RecyclerView parent, @NotNull RecyclerView.State state) {
         drawHorizontal(c, parent);
         drawVertical(c, parent);
     }

@@ -29,9 +29,6 @@ import android.widget.TextView;
 
 import androidx.core.view.ViewCompat;
 
-/**
- * Created by Yan Zhenjie on 2016/7/27.
- */
 public class SwipeMenuLayout extends FrameLayout implements SwipeSwitch {
 
     public static final int DEFAULT_SCROLLER_DURATION = 200;
@@ -110,47 +107,22 @@ public class SwipeMenuLayout extends FrameLayout implements SwipeSwitch {
         }
     }
 
-    /**
-     * Set whether open swipe. Default is true.
-     *
-     * @param swipeEnable true open, otherwise false.
-     */
     public void setSwipeEnable(boolean swipeEnable) {
         this.swipeEnable = swipeEnable;
     }
 
-    /**
-     * Open the swipe function of the Item?
-     *
-     * @return open is true, otherwise is false.
-     */
     public boolean isSwipeEnable() {
         return swipeEnable;
     }
 
-    /**
-     * Set open percentage.
-     *
-     * @param openPercent such as 0.5F.
-     */
     public void setOpenPercent(float openPercent) {
         this.mOpenPercent = openPercent;
     }
 
-    /**
-     * Get open percentage.
-     *
-     * @return such as 0.5F.
-     */
     public float getOpenPercent() {
         return mOpenPercent;
     }
 
-    /**
-     * The duration of the set.
-     *
-     * @param scrollerDuration such as 500.
-     */
     public void setScrollerDuration(int scrollerDuration) {
         this.mScrollerDuration = scrollerDuration;
     }
@@ -286,13 +258,6 @@ public class SwipeMenuLayout extends FrameLayout implements SwipeSwitch {
         return super.onTouchEvent(ev);
     }
 
-    /**
-     * compute finish duration.
-     *
-     * @param ev       up event.
-     * @param velocity velocity x.
-     * @return finish duration.
-     */
     private int getSwipeDuration(MotionEvent ev, int velocity) {
         int sx = getScrollX();
         int dx = (int) (ev.getX() - sx);

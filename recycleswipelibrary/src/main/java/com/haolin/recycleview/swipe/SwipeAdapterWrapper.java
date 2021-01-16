@@ -27,9 +27,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import java.lang.reflect.Field;
 import java.util.List;
 
-/**
- * Created by YanZhenjie on 2017/7/20.
- */
 public class SwipeAdapterWrapper extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static final int BASE_ITEM_TYPE_HEADER = 100000;
@@ -54,20 +51,10 @@ public class SwipeAdapterWrapper extends RecyclerView.Adapter<RecyclerView.ViewH
         return mAdapter;
     }
 
-    /**
-     * Set to create menu listener.
-     *
-     * @param swipeMenuCreator listener.
-     */
     void setSwipeMenuCreator(SwipeMenuCreator swipeMenuCreator) {
         this.mSwipeMenuCreator = swipeMenuCreator;
     }
 
-    /**
-     * Set to click menu listener.
-     *
-     * @param swipeMenuItemClickListener listener.
-     */
     void setSwipeMenuItemClickListener(SwipeMenuItemClickListener swipeMenuItemClickListener) {
         this.mSwipeMenuItemClickListener = swipeMenuItemClickListener;
     }

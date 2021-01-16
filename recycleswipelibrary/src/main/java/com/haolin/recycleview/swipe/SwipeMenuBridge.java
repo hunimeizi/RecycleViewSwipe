@@ -26,9 +26,6 @@ import androidx.annotation.DrawableRes;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 
-/**
- * Created by YanZhenjie on 2017/7/20.
- */
 public final class SwipeMenuBridge {
 
     @SwipeMenuRecyclerView.DirectionMode

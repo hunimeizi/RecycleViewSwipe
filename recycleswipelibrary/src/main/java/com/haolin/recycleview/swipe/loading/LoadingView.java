@@ -39,9 +39,6 @@ public class LoadingView extends ImageView {
         setImageDrawable(mLoadingDrawable);
     }
 
-    /**
-     * Set several colors of the circle.
-     */
     public void setCircleColors(int r1, int r2, int r3) {
         mLoadingRenderer.setCircleColors(r1, r2, r3);
     }

@@ -32,9 +32,6 @@ import com.haolin.recycleview.swipe.R;
 import com.haolin.recycleview.swipe.SwipeMenuRecyclerView;
 import com.haolin.recycleview.swipe.loading.LoadingView;
 
-/**
- * Created by YanZhenjie on 2017/7/21.
- */
 public class DefaultLoadMoreView extends LinearLayout implements SwipeMenuRecyclerView.LoadMoreView, View.OnClickListener {
 
     private LoadingView mLoadingView;
