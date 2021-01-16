@@ -1,0 +1,3 @@
+include ':recycleswipelibrary'
+include ':app'
+rootProject.name = "HaoLinRecycleViewSlidingDeleteSample"
