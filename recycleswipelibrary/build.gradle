@@ -2,17 +2,18 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'maven'
 }
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
     lintOptions {
         abortOnError false
     }
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 29
+        minSdkVersion 19
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -48,28 +49,20 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
-
 ext {
-    package_userOrg = '' //  组织名或者用户名 不填默认用户名
-    package_repo = 'SlidingDelete' // bintray上的仓库名，就是我们在第二步中创建的仓库名字，如果package_userOrg设置的为组织名，那么这个仓库名得属于组织的
-    package_type = 'aar'  // 输出类型
-    package_group = 'com.haolin' // JCenter的GroupId
-    package_artifact = 'RecycleViewSwipe' // JCenter的ArtifactId 路径名字
-    package_version = '1.0.0'  // JCenter的VersionId  路径 com.haolin:RecycleViewSwipe:1.0.0
-    package_description = 'A tools for test jcenter'
+    // These could be set globally
+    PUBLISH_GROUP_ID = 'io.github.hunimeizi'
+    PUBLISH_VERSION = versionName
 
-    siteUrl = 'https://github.com/hunimeizi/RecycleViewSwipe'
-    gitUrl = 'https://github.com/hunimeizi/RecycleViewSwipe.git'
+    // These should be module-dependent
+    PUBLISH_ARTIFACT_ID = 'haolinRecycleViewSwipe'
+    ARTIFACT_DESCRIPTION = "ARabbit is a sdk for faster android app development."
+    uploadJavadocs = false
+    uploadSources = false
 
-    //开发者信息
-    developerId = 'haolin'
-    developerName = 'haolin'
-    developerEmail = '342161360@qq.com'
+    PROJECT_NAME = 'https://github.com/hunimeizi/RecycleViewSwipe'
 
-    //开源协议
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = 'Apache-2.0'
 }
-apply from:"./bintray.gradle"
+
+apply from: "${rootProject.projectDir}/publish-mavencentral.gradle"
 
