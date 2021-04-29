@@ -12,7 +12,7 @@ dependencies {
   implementation 'io.github.hunimeizi:haolinRecycleViewSwipe:1.0.0'
 }
 ```
-2.使用实例
+2.使用示例
 ```js
      binding.recyclerView.layoutManager = LinearLayoutManager(this)
             val mSwipeMenuCreator =
